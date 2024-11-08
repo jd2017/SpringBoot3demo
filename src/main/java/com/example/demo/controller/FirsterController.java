@@ -4,12 +4,13 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping
+@RequestMapping("t")
 @Tag(name = "请求类功能控制器", description = "这是控制器的描述")
 public class FirsterController {
 
     @GetMapping(path = "/first")
     String firstContrellor(){
+        int anInt= 10/0;
         return "hello controllor!";
     }
 
