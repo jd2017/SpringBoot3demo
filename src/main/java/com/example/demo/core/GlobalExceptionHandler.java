@@ -18,7 +18,6 @@ import util.R;
 
         @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
         @ExceptionHandler({Exception.class})
-//    @ResponseBody
         public R exceptionHandler(Exception e){
             //记录日志
             //通知运维
@@ -29,7 +28,6 @@ import util.R;
 
         }
 
-
         @ExceptionHandler({ServiceException.class})
         @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
         public R servceExceptionHandler(HttpServletRequest req, ServiceException se){
@@ -39,8 +37,6 @@ import util.R;
 //        return new ErrorR(se.getCode(), "业务异常 "+ tips,method + " "+ requestUrl);
             return R.error().message("业务异常 "+ tips +" RestAPI:"+method + " "+ requestUrl).code(se.getCode());
         }
-
-
 
         ////    .ArithmeticException
         @ExceptionHandler({ArithmeticException.class})
