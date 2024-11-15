@@ -1,14 +1,16 @@
 package com.example.demo.core;
 
 import com.example.demo.exception.ServiceException;
-import jakarta.servlet.http.HttpServletRequest;
+//import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import util.R;
 
-    //ControllerAdvice  AOP面向切面编程，对原来对功能没有侵入性，原来什么样子现在还是什么样子
+import javax.servlet.http.HttpServletRequest;
+
+//ControllerAdvice  AOP面向切面编程，对原来对功能没有侵入性，原来什么样子现在还是什么样子
     //我只是在原来的功能的基础上给你扩展出一个功能，统一异常处理功能
     //@ControllerAdvice
     @RestControllerAdvice
@@ -38,9 +40,7 @@ import util.R;
             return R.error().message("业务异常 "+ tips +" RestAPI:"+method + " "+ requestUrl).code(se.getCode());
         }
 
-        ////    .ArithmeticException
         @ExceptionHandler({ArithmeticException.class})
-//    @ResponseBody
         public R exceptionHandler1(ArithmeticException e){
             e.printStackTrace();
             return R.error().message("特殊异常处理");

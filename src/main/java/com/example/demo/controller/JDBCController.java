@@ -10,11 +10,11 @@ import java.util.HashMap;
 @RestController
 public class JDBCController{
 
-    @Autowired
-    JDBCConfiguration jdbcConfiguration;
+//    @Autowired
+//    JDBCConfiguration jdbcConfiguration;
 
-    @GetMapping(value = "/getJdbc", produces = "application/json")
-    HashMap<String,String> getJDBC(){
-        return  jdbcConfiguration.getJDBC();
-    }
+//    @GetMapping(value = "/getJdbc", produces = "application/json")
+//    HashMap<String,String> getJDBC(){
+//        return  jdbcConfiguration.getJDBC();
+//    }
 }
